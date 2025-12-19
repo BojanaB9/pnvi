@@ -82,6 +82,32 @@ def find_matches(board):
             if k >= 3:
                 for i in range(k): matches.add((r + i, c - i))
 
+    '''Samo ova dodaj go vo na marija kodot za da ima i doagonalno spojjuvanje
+    def find_matches(board):
+    to_rem = set()
+    for r in range(GRID_SIZE):
+        for c in range(GRID_SIZE):
+
+            # Horizontal
+            if c < GRID_SIZE - 2 and board[r][c] == board[r][c + 1] == board[r][c + 2]:
+                to_rem.update([(r, c), (r, c + 1), (r, c + 2)])
+
+            # Vertical
+            if r < GRID_SIZE - 2 and board[r][c] == board[r + 1][c] == board[r + 2][c]:
+                to_rem.update([(r, c), (r + 1, c), (r + 2, c)])
+
+            # ✅ Diagonal ↘ (top-left → bottom-right)
+            if r < GRID_SIZE - 2 and c < GRID_SIZE - 2 and \
+               board[r][c] == board[r + 1][c + 1] == board[r + 2][c + 2]:
+                to_rem.update([(r, c), (r + 1, c + 1), (r + 2, c + 2)])
+
+            # ✅ Diagonal ↙ (top-right → bottom-left)
+            if r < GRID_SIZE - 2 and c > 1 and \
+               board[r][c] == board[r + 1][c - 1] == board[r + 2][c - 2]:
+                to_rem.update([(r, c), (r + 1, c - 1), (r + 2, c - 2)])'''
+
+    return to_rem
+
     return matches
 
 # --- Remove Matches ---
